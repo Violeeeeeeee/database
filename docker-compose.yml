@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: test-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: mydb
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      - mysql-data:/var/lib/mysql
+      - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: unless-stopped
+
+volumes:
+  mysql-data:
