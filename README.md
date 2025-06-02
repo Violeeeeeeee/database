@@ -1,70 +1,45 @@
 # database
-baza danych
+- 2025 Spring informatyka(studia inżynierskie 2 rok)
+- Database systems project
 
-Ten projekt umożliwia szybkie uruchomienie bazy danych MySQL w kontenerze Docker z inicjalizacją przez pliki SQL.
-## Wymagane narzędzia
-    Git dla Windows
-    Docker Desktop (zawiera Docker Compose)
+This project allows you to quickly spin up a MySQL database in a Docker container with automatic SQL file initialization.
 
-## Instalacja
-1. Zainstaluj Git
-    Pobierz Git z oficjalnej strony
-    Zainstaluj (https://git-scm.com/)
-2. Zainstaluj Docker Desktop
-    Pobierz Docker Desktop z docker.com
-    Podczas instalacji zgódź się na instalację WSL 2 (jeśli to konieczne)
-    Po zakończeniu instalacji — zrestartuj komputer
-    Uruchom Docker i upewnij się, że działa (zielona ikona w tray'u)
-## Struktura repozytorium
-your-repo/
-├── docker-compose.yml
-└── db/
-├── init/
-│ ├── 01_schema.sql
-└── my.cnf (opcjonalnie)
-
-    Wszystkie pliki .sql z db/init/ są automatycznie wykonywane przy pierwszym uruchomieniu.
-
-## Uruchomienie
-
-### Sklonuj repozytorium
-git clone https://github.com/Violeeeeeeee/database.githttps://github.com/
+## Getting Started
+Clone the repository:
+```
+git clone https://github.com/Violeeeeeeee/database.git
 cd database
+```
 
-Uruchom kontener:
-docker-compose up -d
-
-MySQL będzie dostępny na localhost:3307
-
-Hasło root: pass
-
-Parametry połączenia z bazą danych:
-* Host: localhost
-* Port: 3307
-* Użytkownik: root
-* Hasło: pass
-
-### Komendy zarządzania
-Uruchomienie (bez usuwania danych)
-
-```bash
+### Run the container
+```
 docker-compose up -d
 ```
-Zatrzymanie (bez usuwania)
 
-```bash
+MySQL will be available at localhost:3307.
+### Default credentials:
+- Host: localhost
+- Port: 3307
+- User: root
+- Password: pass
+
+### Common commands
+Start (without removing data):
+```
+docker-compose up -d
+```
+
+Stop (without removing data):
+```
 docker-compose down
 ```
 
-Całkowite usunięcie z danymi
-
-```bash
+Remove everything (including data):
+```
 docker-compose down -v
 ```
 
-Sprawdzenie statusu
-
-```bash
+Check container status:
+```
 docker ps
 ```
-
